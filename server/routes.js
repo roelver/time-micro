@@ -8,10 +8,11 @@ import errors from './components/errors';
 import path from 'path';
 
 export default function(app) {
+//  console.log(app);
   // Insert routes below
-  app.use('/api/things', require('./api/thing'));
+  app.use('/', require('./api'));
   // All undefined asset or api routes should return a 404
-  app.route('/:url(api|auth|components|app|bower_components|assets)/*')
+  app.route('/:url(api|app|assets)/*')
    .get(errors[404]);
 
   // All other routes should redirect to the index.html
